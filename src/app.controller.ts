@@ -1,5 +1,7 @@
 import { Controller, Get, Render } from '@nestjs/common';
 import { AppService } from './app.service';
+import { render } from 'ejs';
+import { get } from 'http';
 
 @Controller()
 export class AppController {
@@ -7,8 +9,7 @@ export class AppController {
 
   @Get()
   @Render('inicial')
-  getHello(): object {
-
+  getInicial(): object {
     let pessoas = [
       { nome: 'William da Silva Matsunaga', email: 'williamsilvamatsunaga@outlook.com' },
       { nome: 'Fernando Sampaio Correia', email: 'sampaiocorrea123@gmail.com' },
@@ -18,11 +19,35 @@ export class AppController {
       { nome: 'Ronaldinho Gaúcho', email: 'ronaldinhovoutedibrei@gmail.com' },
     ];
 
-
     return { 
       titulo: 'Lista de Pessoas', 
       horaAgora: new Date().toLocaleString('pt-BR'),
       listaPessoas: pessoas
     };
+  }
+
+  @Get('/hello')
+  @Render('inicial')
+  getHello(): object {
+    return {
+      titulo: 'Seção de informações do sistema web.',
+      listaPessoas: [] // 👈 evita erro
+    }
+  }
+
+  @Get('/sobre')
+  @Render('_sobre')
+  getSobre(): object {
+    return {
+      titulo: 'Seção de informações do sistema web.'
+    }
+  }
+
+  @Get('/login')
+  @Render('autenticacao/login')
+  getLogin(): object {
+    return {
+      layout: false
+    }
   }
 }
