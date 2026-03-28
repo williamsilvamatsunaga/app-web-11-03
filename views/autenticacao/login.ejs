@@ -1,19 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/estilos.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+
     <div class="container">
-        <h1>Login</h1>
-        <form action="">
-            <label for="user">Usuário</label>
-            <input type="text" name="user" id="user">
-            
-        </form>
+        <div class="login-box">
+            <h1>Login</h1>
+
+            <form action="">
+                <div class="input-group">
+                    <label for="user">Usuário</label>
+                    <input type="text" id="user" name="user" placeholder="Digite seu usuário" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                </div>
+
+                <button type="submit">Entrar</button>
+
+                <p class="link">
+                    Não tem conta? <a href="#">Cadastre-se</a>
+                </p>
+            </form>
+        </div>
     </div>
+
 </body>
 </html>
