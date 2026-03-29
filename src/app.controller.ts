@@ -20,6 +20,7 @@ export class AppController {
     ];
 
     return { 
+      layout: false,
       titulo: 'Lista de Pessoas', 
       horaAgora: new Date().toLocaleString('pt-BR'),
       listaPessoas: pessoas
@@ -31,7 +32,8 @@ export class AppController {
   getHello(): object {
     return {
       titulo: 'Seção de informações do sistema web.',
-      listaPessoas: [] // 👈 evita erro
+      listaPessoas: [] 
+      
     }
   }
 
@@ -48,6 +50,14 @@ export class AppController {
   getLogin(): object {
     return {
       layout: false
+    }
+  }
+
+  @Get('/curriculo')
+  @Render('curriculo')
+  getCurriculo(): object{
+    return{
+      layout: false,
     }
   }
 }
